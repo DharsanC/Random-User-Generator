@@ -1,0 +1,196 @@
+
+*{
+font-family:"Poppins",sans-serif;
+font-weight:500;
+transition:all 0.4s linear;
+}
+
+#headContent,#subContent,h2{
+background-image:linear-gradient(135deg,aqua,blue);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+h2{
+margin:0;
+padding:0;
+}
+
+body{
+margin:0;
+padding:0;
+overflow-x:hidden;
+user-select:none;
+background:black;
+}
+
+.container{
+width:100vw;
+height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+#btn{
+padding:12px 20px;
+color:white;
+border-radius:30px;
+border:transparent;
+font-size:1.1rem;
+font-weight:600;
+background:transparent;
+letter-spacing:1px;
+background-image:linear-gradient(135deg,aqua,blue);
+transition:all 0.5s linear;
+}
+
+#btn:hover{
+cursor:pointer;
+}
+
+#image{
+width:200px;
+height:200px;
+margin:15px 0px;
+border-radius:50%;
+}
+
+.containOutput{
+margin:5px 0px;
+display:flex;
+flex-direction:column;
+align-items:center;
+width:100vw;
+}
+
+.head{
+margin:5px 0px;
+display:flex;
+flex-direction:column;
+align-items:center;
+width:100vw;
+}
+
+
+#nameBtn{
+border:none;
+background:none;
+cursor:pointer;
+}
+
+.containBtns{
+flex-wrap:wrap;
+justify-content:center;
+margin:10px 0px;
+}
+
+.userInfo{
+max-width:500px;
+padding:15px 10px;
+box-shadow:2px 2px 10px rgba(0,0,0,0.3),-2px -2px 10px rgba(0,0,0,0.3);
+border-radius:10px;
+display:none;
+}
+
+
+.containBtns,.name,.email,.password,.contact,.dob,.location,.country{
+display:none;
+transition:all 0.3s linear;
+}
+
+.name,.email,.password,.contact,.dob,.location,.country{
+border-bottom:1px solid white;
+padding:10px 0px;
+}
+
+i{
+font-size:1.5rem; 
+color:white;
+background:black;
+border-radius:50%; 
+padding:10px 12px;
+border:2px solid white;
+}
+
+i:hover{
+background:white;
+color:black;
+border:2px solid black;
+}
+
+@media screen and (min-width:375px) and (max-width:480px){
+#headContent{
+font-size:1.7rem;
+text-align:center;
+margin:25px 0px;
+}
+
+*{
+margin:0;
+padding:0;
+}
+
+#btn{
+font-size:.9rem;
+}
+
+.userInfo{
+max-width:400px;
+}
+
+.userInfo h2{
+font-size:1rem;
+}
+
+i{
+font-size:1.2rem;
+}
+
+.containOutput{
+display:flex;
+flex-direction:column;
+align-items:center;
+width:100vw;
+}
+
+#nameBtn{
+margin:15px 5px;
+}
+
+}
+
+
+@media screen and (min-width:320px) and (max-width:374px){
+#headContent{
+font-size:1.7rem;
+text-align:center;
+margin:25px 0px;
+}
+
+*{
+margin:0;
+padding:0;
+}
+
+#btn{
+font-size:.9rem;
+}
+
+.userInfo{
+max-width:300px;
+}
+
+.userInfo h2{
+font-size:1rem;
+}
+
+i{
+font-size:1.2rem;
+}
+
+#nameBtn{
+margin:15px 5px;
+}
+
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Random User Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.min.css" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+
+<div class="container">
+
+<header class="head">
+<h1 id="headContent">Random User Generator</h1>
+<button id="btn" onclick="fetchData()">Find Users</button>
+</header>
+
+<div class="containOutput">
+<div class="image"></div>
+<div class="containBtns">
+<button id="nameBtn" onclick="nameDisplay()"><i class="ri-user-line"></i></button> 
+<button id="nameBtn" onclick="emailDisplay()"><i class="ri-mail-line"></i></button>
+<button id="nameBtn" onclick="passwordDisplay()"><i class="ri-eye-off-line"></i></button>
+<button id="nameBtn" onclick="locationDisplay()"><i class="ri-map-pin-line"></i></button>
+<button id="nameBtn" onclick="countryDisplay()"><i class="ri-flag-line"></i></button>
+<button id="nameBtn" onclick="contactDisplay()"><i class="ri-phone-line"></i></button>
+<button id="nameBtn" onclick="dobDisplay()"><i class="ri-calendar-line"></i></button>
+</div>
+</div>
+
+<div class="userInfo">
+<h2 class="name"></h2>
+<h2 class="email"></h2>
+<h2 class="password"></h2>
+<h2 class="location"></h2>
+<h2 class="country"></h2>
+<h2 class="contact"></h2>
+<h2 class="dob"></h2>
+</div>
+
+</div>
+
+<script>
+
+
+function nameDisplay(){
+const nameInfo = document.querySelector(".name");
+nameInfo.style.display="block";
+const contain = document.querySelector(".userInfo");
+contain.style.display="block";
+}
+
+function emailDisplay(){
+const emailInfo = document.querySelector(".email");
+emailInfo.style.display="block";
+}
+
+function passwordDisplay(){
+const passwordInfo = document.querySelector(".password");
+passwordInfo.style.display="block";
+}
+
+function locationDisplay(){
+const locateInfo = document.querySelector(".location");
+locateInfo.style.display="block";
+}
+
+function countryDisplay(){
+const countryInfo = document.querySelector(".country");
+countryInfo.style.display="block";
+}
+
+function contactDisplay(){
+const contactInfo = document.querySelector(".contact");
+contactInfo.style.display="block";
+}
+
+function dobDisplay(){
+const dobInfo = document.querySelector(".dob");
+dobInfo.style.display="block";
+}
+
+async function fetchData(){
+
+try{
+let icons = document.querySelector(".containBtns");
+icons.style.display="block";
+icons.style.display="flex";
+let store = document.querySelector(".image");
+let nameData = document.querySelector(".name");
+let emailData = document.querySelector(".email");
+let passwordData = document.querySelector(".password");
+let locationData = document.querySelector(".location");
+let countryData = document.querySelector(".country");
+let contactData = document.querySelector(".contact");
+let dobData = document.querySelector(".dob");
+let contain = await fetch("https://randomuser.me/api/");
+let into = await contain.json();
+let user = into.results[0];
+let asign = `Name : ${user.name.title}. ${user.name.first} ${user.name.last}`;
+let email = user.email;
+let password = user.login.password;
+let gender= user.gender;
+let locationContent = user.location.street.name;
+let countryContent = user.location.country;
+let contactContent = user.phone;
+let dob = user.dob.date;
+let pictures= user.picture.large;
+
+store.innerHTML=`<img id="image" src="${pictures}"> <br>`;
+nameData.innerHTML=`${asign} <br>`;
+emailData.innerHTML=`Email : ${email} <br>`;
+passwordData.innerHTML=`Password : ${password} <br>`;
+locationData.innerHTML=`Address : ${locationContent}`;
+countryData.innerHTML=`Country : ${countryContent}`;
+contactData.innerHTML=`Contact : ${contactContent} <br>`;
+dobData.innerHTML=`DOB : ${dob}`;
+
+}
+
+catch(error){
+alert("No data found because your offline");
+console.log("error is",error);
+}
+
+}
+
+
+</script>
+</body>
+</html>
